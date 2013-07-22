@@ -44,6 +44,8 @@
 
 	body{
 		font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+		background-image:url('images/light_wool.png');
+		/*background-color:#cccccc;*/
 	}
 	.heading, .subheading{
 		font-family:'Ubuntu', Helvetica, Arial, sans-serif;
@@ -161,7 +163,7 @@
 						<div class="span4">
 							<div class="linediv-c">
 								<h3>0</h3>
-								<p>beers</p>
+								<p>of 100k$</p>
 							</div>
 						</div>
 						<div class="span4">
@@ -196,11 +198,12 @@
 
 			<div class="row-fluid section1">
 				<div class="span5 offset1 asset">
-					<img class="img-polaroid" src="http://placehold.it/480x300">
+					<!-- <img class="img-polaroid" src="http://placehold.it/480x300"> -->
+					<div id="epiceditor"></div>
 				</div>
 				<div class="span5 copy"> 
 					<p>
-						Let's be honest, working in the lab require wasting lot of time between data-treating, and filling your own lab notebook. The Electronic notebook softwares around are overcomplicated slow 90's pieces of crap. SLAB simiplifies all that. Oh, and make it blizzardly fast.
+						Let's be honest, working in the lab requires wasting lot of time between data-treating, and filling your own lab notebook. The Electronic notebook softwares around are overcomplicated slow 90's pieces of crap. SLAB simiplifies all that. Oh, and make it blizzardly fast.
 					</p>
 				</div>
 			</div>
@@ -281,6 +284,45 @@
 					</div>
 				</div>
 
+				<script src="public/epiceditor.min.js"></script>
+				<script>
+
+				var opts = {
+				  container: 'epiceditor',
+				  textarea: null,
+				  basePath: 'EpicEditor/epiceditor',
+				  clientSideStorage: true,
+				  localStorageName: 'epiceditor',
+				  useNativeFullscreen: true,
+				  parser: marked,
+				  file: {
+				    name: 'epiceditor',
+				    defaultContent: '',
+				    autoSave: 100
+				  },
+				  theme: {
+				    base: '/themes/base/epiceditor.css',
+				    preview: '/themes/preview/preview-dark.css',
+				    editor: '/themes/editor/epic-dark.css'
+				  },
+				  button: {
+				    preview: true,
+				    fullscreen: true
+				  },
+				  focusOnLoad: false,
+				  shortcut: {
+				    modifier: 18,
+				    fullscreen: 70,
+				    preview: 80
+				  },
+				  string: {
+				    togglePreview: 'Toggle Preview Mode',
+				    toggleEdit: 'Toggle Edit Mode',
+				    toggleFullscreen: 'Enter Fullscreen'
+				  }
+				}
+
+				var editor = new EpicEditor(opts).load(function(){console.log("Editor loaded.")});</script>
 
 			</body>
 			</html>

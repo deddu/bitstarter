@@ -1,8 +1,13 @@
 var express = require('express');
 var fs = require('fs');
 var index=('index.html');
+
+
 var app = express.createServer(express.logger());
 
+app.use("/images", express.static(__dirname + '/images'));
+app.use("/public", express.static(__dirname + '/public'));
+app.use("/EpicEditor", express.static(__dirname + '/EpicEditor'));
 app.get('/', function(request, response) {
 fs.readFile("./index.html", function read(err,data){
 if (err ){
