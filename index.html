@@ -198,8 +198,8 @@
 
 			<div class="row-fluid section1">
 				<div class="span5 offset1 asset">
-					<!-- <img class="img-polaroid" src="http://placehold.it/480x300"> -->
-					<div id="epiceditor"></div>
+					<img class="img-polaroid" src="http://placehold.it/480x300">
+					
 				</div>
 				<div class="span5 copy"> 
 					<p>
@@ -215,7 +215,8 @@
 					</p>
 				</div>
 				<div class="span5 asset">
-					<img class="img-polaroid" src="http://placehold.it/480x300">
+					<div id="epiceditor"></div>
+					<!-- <img class="img-polaroid" src="http://placehold.it/480x300"> -->
 				</div>
 			</div>
 			
@@ -286,7 +287,7 @@
 
 				<script src="public/epiceditor.min.js"></script>
 				<script>
-
+				var deftext = "##Here we areThis is what writing in Markdown looks like. Simple text, no fuss. **Try me!**"
 				var opts = {
 				  container: 'epiceditor',
 				  textarea: null,
@@ -297,7 +298,7 @@
 				  parser: marked,
 				  file: {
 				    name: 'epiceditor',
-				    defaultContent: '',
+				    defaultContent: deftext,
 				    autoSave: 100
 				  },
 				  theme: {
