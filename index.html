@@ -14,103 +14,7 @@
 
 	<link href="http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic500italic,700italic" rel="stylesheet" type="text/css">
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
-	<style type="text/css">
-	/* large desktops*/
-	@media (min-width: 980px){
-		body {
-			padding-top: 60px;
-		}
-		.linediv-l{
-			border-right:1px white solid;
-		}
-		.linediv-r {
-			border-left:1px white solid;
-		}
-	}
-	/* mobiles */
-	@media (max-width:480px){
-		.copy{
-			padding: 2.5% 10%;
-		}
-		.linediv-l{
-			border-bottom: 1px white solid;
-		}
-		.linediv-r {
-			border-top: 1px white solid;
-		}
-	}
-	/* everyone */
-	/* main body and headings */
-
-	body{
-		font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-		background-image:url('images/light_wool.png');
-		/*background-color:#cccccc;*/
-	}
-	.heading, .subheading{
-		font-family:'Ubuntu', Helvetica, Arial, sans-serif;
-		text-align: center;
-	}   
-    
-	p.lead{
-		padding-top: 1.5%;
-		font-size: 24px;
-		line-height: 30px;
-	}
-	p {
-		font-size:18px;
-		line-height: 24px;
-	}
-	.pitch{
-		padding: 2.5% 0%;
-	}
-	.order{
-		padding: 2% 0%;
-	}
-	.actions{
-		background-color:#343434;
-		padding: 3% 0%;
-	}
-	.video, .thermometer, .order, .social .statistics {
-		text-align: center;
-	}
-	.statistics h3, .statistics p {
-		color: white;
-	}
-	.copy {
-		padding-top: 2.5%;
-		padding-bottom:2.5%;
-		text-align: justify;
-	}
-	.asset{
-		padding: 2.5% 0%;
-	}
-	.footer{
-		color: #cccccc;
-		text-align: center;
-	}
-	.footer p {
-		font-size: 11px;
-	}
-	.footer a {
-		color: #ccccff;
-	}
-	html, body {
-		width: 100%;
-		height: 100%;
-	}
-	.container-canvas {
-		border: 10px solid gray;
-		height: 100%;
-		position: relative;
-	}
-	.paint{
-/*		color:#cccccc;*/
-		left: 0px; right: 0;
-		bottom: 0; top: 0;
-		cursor: crosshair;
-	}
-	</style>
+	<link type="text/css" rel="stylesheet" href="public/main.css">
 </head>
 <body>
 
@@ -135,19 +39,7 @@
 		</div>
 	</div>
 		
-		<div class="container">
-<!--	
-		<div class="row-fluid navigation">
-			<div class="span2 logo">
-				<img src="https://raw.github.com/deddu/bitstarter/master/slab.png" width="100">	
-			</div>
-			<div class="span6 blank">
-				blank
-			</div>
-			<div class="span4 about">
-				About
-			</div>
-		</div> -->
+	<div class="container">
 		<div class="row-fluid heading">
 			<div class="span12">
 				<h1><img src="images/slab.svg" width="250"></h1>
@@ -203,9 +95,9 @@
 						<button class="btn btn-facebook"><i class="icon-facebook"></i> | Facebook </button>
 					</div>
 					
-<!-- 					<div class="span8 offset2 social">
-						<button class="btn btn-linkedin"><i class="icon-linkedin"></i> | Linkedin </button>
-						<button class="btn btn-github"><i class="icon-github"></i> | Github </button>
+					<!-- 					<div class="span8 offset2 social">
+					<button class="btn btn-linkedin"><i class="icon-linkedin"></i> | Linkedin </button>
+					<button class="btn btn-github"><i class="icon-github"></i> | Github </button>
 					</div> -->
 				</div>
 			</div>
@@ -230,7 +122,6 @@
 				</div>
 				<div class="span5 asset">
 					<div id="epiceditor"></div>
-					<!-- <img class="img-polaroid" src="http://placehold.it/480x300"> -->
 				</div>
 			</div>
 			
@@ -251,13 +142,13 @@
 				<div class="span5 offset1 copy copy-rigth"> 
 					<p>
 						And finally, let's not forget that a lab notebook is a legal document. All the copies of your files are safely stored and automatically synced among all your devices, and subject to version control. Yes, we are sorry, but you cannot go and edit your old documents and pretend you deserve the nobel prize.		</p>
+					</div>
+					<div class="span5 asset">
+						<img class="img-polaroid" src="http://placehold.it/480x300">
+					</div>
 				</div>
-				<div class="span5 asset">
-					<img class="img-polaroid" src="http://placehold.it/480x300">
-				</div>
-			</div>
 			
-		</div>
+			</div>
 		 
 
 
@@ -293,105 +184,19 @@
 				</div>
 			</div>
 
-					<div class="row-fluid footer">
-						<div class="span12">
-							<p> this work is licensed under
-								the <a href="http://creativecommons.org/licenses/by-sa/3.0">CC By-SA 3.0</a>, without
-							</p>	
-						</div>
-					</div>
+			<div class="row-fluid footer">
+				<div class="span12">
+					<p> this work is licensed under
+						the <a href="http://creativecommons.org/licenses/by-sa/3.0">CC By-SA 3.0</a>, without
+					</p>	
 				</div>
+			</div>
+		</div>
 
-				<script>
-				(function() {
-					var canvas = document.getElementById('paint');
-					// var canvas = document.querySelector('#paint');
-					var ctx = canvas.getContext('2d');
-	
-					var sketch = document.getElementById('sketch');
-					var sketch_style = getComputedStyle(sketch);
-					canvas.width = parseInt(sketch_style.getPropertyValue('width'));
-					canvas.height = parseInt(sketch_style.getPropertyValue('height'));
-					console.log(canvas.width, canvas.height)
-					var mouse = {x: 0, y: 0};
-	 
-					/* Mouse Capturing Work */
-					canvas.addEventListener('mousemove', function(e) {
-						mouse.x = e.pageX - $(paint).offset().left;
-
-						mouse.y = e.pageY - $(paint).offset().top;
-						//console.log(mouse.x, e.pageX, this.offsetLeft)
-   						//console.log(mouse.y, e.pageY, this.offsetTop)
-					}, false);
-	
-					/* Drawing on Paint App */
-					ctx.lineWidth = 3;
-					ctx.lineJoin = 'round';
-					ctx.lineCap = 'round';
-					ctx.strokeStyle = 'dark-gray';
-	 
-					canvas.addEventListener('mousedown', function(e) {
-							ctx.beginPath();
-							ctx.moveTo(mouse.x, mouse.y);
-	 					   	// console.log('listening')
-							canvas.addEventListener('mousemove', onPaint, false);
-					}, false);
-	 
-					canvas.addEventListener('mouseup', function() {
-							canvas.removeEventListener('mousemove', onPaint, false);
-					}, false);
-	 
-					var onPaint = function() {
-							ctx.lineTo(mouse.x, mouse.y);
-							ctx.stroke();
-							//console.log(mouse.x,mouse.y);
-					};
-	
-				}());
-				
-				</script>
-
-				<script src="public/epiceditor/js/epiceditor.min.js"></script>
-				<script>
-				var deftext = "##Here we areThis is what writing in Markdown looks like. Simple text, no fuss. **Try me!**"
-				var opts = {
-				  container: 'epiceditor',
-				  textarea: null,
-				  basePath: 'public/epiceditor',
-				  clientSideStorage: true,
-				  localStorageName: 'epiceditor',
-				  useNativeFullscreen: true,
-				  parser: marked,
-				  file: {
-				    name: 'epiceditor',
-				    defaultContent: deftext,
-				    autoSave: 100
-				  },
-				  theme: {
-				    base: '/themes/base/epiceditor.css',
-				    preview: '/themes/preview/github.css',
-				    editor: '/themes/editor/epic-dark.css'
-				  },
-				  button: {
-				    preview: true,
-				    fullscreen: true
-				  },
-				  focusOnLoad: false,
-				  shortcut: {
-				    modifier: 18,
-				    fullscreen: 70,
-				    preview: 80
-				  },
-				  string: {
-				    togglePreview: 'Toggle Preview Mode',
-				    toggleEdit: 'Toggle Edit Mode',
-				    toggleFullscreen: 'Enter Fullscreen'
-				  }
-				}
-
-				var editor = new EpicEditor(opts).load(function(){console.log("Editor loaded.")});
-				</script>
+		<script src="public/draw_canvas.js"></script>
+		<script src="public/epiceditor/js/epiceditor.min.js"></script>
+		<script src="public/ee_conf.js"></script>
 
 				
-			</body>
-			</html>
+	</body>
+	</html>
