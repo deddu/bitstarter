@@ -95,7 +95,21 @@
 	.footer a {
 		color: #ccccff;
 	}
-
+	html, body {
+		width: 100%;
+		height: 100%;
+	}
+	.container-canvas {
+		border: 10px solid gray;
+		height: 100%;
+		position: relative;
+	}
+	.paint{
+/*		color:#cccccc;*/
+		left: 0px; right: 0;
+		bottom: 0; top: 0;
+		cursor: crosshair;
+	}
 	</style>
 </head>
 <body>
@@ -222,7 +236,10 @@
 			
 			<div class="row-fluid section3">
 				<div class="span5 offset1 asset">
-					<img class="img-polaroid" src="http://placehold.it/480x300">
+					<div id="sketch" class="container-canvas">
+						<canvas id="paint" class="paint"></canvas>
+					</div>
+
 				</div>
 				<div class="span5 copy"> 
 					<p>And why not be able to freehand draw to jot that damn flux capacitor sketch you need? 
@@ -251,12 +268,12 @@
 						<div class="accordion-group">
 							<div class="accordion-heading">
 								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accorion2" href="#collapseOne">
-									What is this supposed to do?
+									Why do I need an electronic laboratory notebook?
 								</a>
 							</div>
 							<div id="collapseOne" class="accordion-body collapse">
 								<div class="accordion-inner">
-									aquestion
+									Right now, you don't need it. With what there's around is just a waste of time. But Slab gives you all the candy - you can write and sketch and shoot and mail data during your experiments, and keep track of your stuff, on laptops and smartphones and mainframes. And eventually you can share it with your boss. Eventually.
 								</div>
 							</div>
 						</div>
@@ -284,6 +301,55 @@
 						</div>
 					</div>
 				</div>
+
+				<script>
+				(function() {
+					var canvas = document.getElementById('paint');
+					// var canvas = document.querySelector('#paint');
+					var ctx = canvas.getContext('2d');
+	
+					var sketch = document.getElementById('sketch');
+					var sketch_style = getComputedStyle(sketch);
+					canvas.width = parseInt(sketch_style.getPropertyValue('width'));
+					canvas.height = parseInt(sketch_style.getPropertyValue('height'));
+					console.log(canvas.width, canvas.height)
+					var mouse = {x: 0, y: 0};
+	 
+					/* Mouse Capturing Work */
+					canvas.addEventListener('mousemove', function(e) {
+						mouse.x = e.pageX - $(paint).offset().left;
+
+						mouse.y = e.pageY - $(paint).offset().top;
+						//console.log(mouse.x, e.pageX, this.offsetLeft)
+   						//console.log(mouse.y, e.pageY, this.offsetTop)
+					}, false);
+	
+					/* Drawing on Paint App */
+					ctx.lineWidth = 3;
+					ctx.lineJoin = 'round';
+					ctx.lineCap = 'round';
+					ctx.strokeStyle = 'dark-gray';
+	 
+					canvas.addEventListener('mousedown', function(e) {
+							ctx.beginPath();
+							ctx.moveTo(mouse.x, mouse.y);
+	 					   	// console.log('listening')
+							canvas.addEventListener('mousemove', onPaint, false);
+					}, false);
+	 
+					canvas.addEventListener('mouseup', function() {
+							canvas.removeEventListener('mousemove', onPaint, false);
+					}, false);
+	 
+					var onPaint = function() {
+							ctx.lineTo(mouse.x, mouse.y);
+							ctx.stroke();
+							console.log(mouse.x,mouse.y);
+					};
+	
+				}());
+				
+				</script>
 
 				<script src="public/epiceditor.min.js"></script>
 				<script>
@@ -323,7 +389,9 @@
 				  }
 				}
 
-				var editor = new EpicEditor(opts).load(function(){console.log("Editor loaded.")});</script>
+				var editor = new EpicEditor(opts).load(function(){console.log("Editor loaded.")});
+				</script>
 
+				
 			</body>
 			</html>
