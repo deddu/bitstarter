@@ -150,7 +150,7 @@
 		</div> -->
 		<div class="row-fluid heading">
 			<div class="span12">
-				<h1><img src="https://raw.github.com/deddu/bitstarter/master/slab.png" width="150"></h1>
+				<h1><img src="images/slab.svg" width="250"></h1>
 			</div>
 		</div>
 		<div class="row-fluid subheading">
@@ -344,20 +344,20 @@
 					var onPaint = function() {
 							ctx.lineTo(mouse.x, mouse.y);
 							ctx.stroke();
-							console.log(mouse.x,mouse.y);
+							//console.log(mouse.x,mouse.y);
 					};
 	
 				}());
 				
 				</script>
 
-				<script src="public/epiceditor.min.js"></script>
+				<script src="public/epiceditor/js/epiceditor.min.js"></script>
 				<script>
 				var deftext = "##Here we areThis is what writing in Markdown looks like. Simple text, no fuss. **Try me!**"
 				var opts = {
 				  container: 'epiceditor',
 				  textarea: null,
-				  basePath: 'EpicEditor/epiceditor',
+				  basePath: 'public/epiceditor',
 				  clientSideStorage: true,
 				  localStorageName: 'epiceditor',
 				  useNativeFullscreen: true,
@@ -369,7 +369,7 @@
 				  },
 				  theme: {
 				    base: '/themes/base/epiceditor.css',
-				    preview: '/themes/preview/preview-dark.css',
+				    preview: '/themes/preview/github.css',
 				    editor: '/themes/editor/epic-dark.css'
 				  },
 				  button: {
